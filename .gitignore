@@ -1,3 +1,10 @@
+# SQLite 資料庫檔案
+todos.db
+
+# zip file
+api_tutorial.zip
+
+### Default Python gitignore ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

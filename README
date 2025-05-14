@@ -1,0 +1,81 @@
+# 待辦事項管理系統
+
+這是一個簡單的待辦事項 (To-Do List) 管理系統，使用前後端分離的架構開發：
+
+* 前端：HTML + Tailwind CSS
+* 後端：FastAPI (Python)
+* 資料庫：SQLite
+
+專案主要提供待辦事項的新增、查詢、修改、刪除 (CRUD) 功能，並包含批次刪除的功能。
+
+## 專案結構
+
+```
+.
+├── app.py                 # FastAPI 後端程式碼
+├── db_test.py             # 測試資料庫連線
+├── todos.db               # SQLite 資料庫檔案 (啟動後自動生成)
+├── static/                # 靜態資源目錄
+│   ├── index.html         # 前端主頁面
+│   └── script.js          # 與後端 API 互動的 JavaScript
+├── requirements.txt       # Python 套件需求檔
+└── README.md              # 專案說明文件
+```
+
+## 安裝與執行
+
+### 1️⃣ 建立虛擬環境
+
+```
+python -m venv todo_api      # 建立虛擬環境
+
+# 進入虛擬環境
+.\todo_api\Scripts\activate     # Windows
+```
+
+### 2️⃣ 安裝所需套件
+
+```
+pip install -r requirements.txt
+```
+
+### 3️⃣ 執行專案
+
+```
+python app.py
+```
+
+伺服器會在 [http://localhost:8000](http://localhost:8000) 運行。
+
+---
+
+## 前端操作
+
+打開瀏覽器並進入 [http://localhost:8000](http://localhost:8000)：
+
+1. 輸入待辦事項後，點擊「新增」按鈕。
+2. 所有的待辦事項將會顯示在清單中。
+3. 可透過勾選待辦項目後，按下「刪除選中項目」批次刪除。
+
+---
+
+## API 說明
+
+| 方法   | 路由                   | 描述       |
+| ---- | -------------------- | -------- |
+| GET  | `/todos`             | 取得所有待辦事項 |
+| POST | `/todos`             | 新增待辦事項   |
+| PUT  | `/todos/{id}`        | 更新待辦事項   |
+| POST | `/todos/bulk-delete` | 批次刪除待辦事項 |
+
+---
+
+## 注意事項
+
+* 須確認 `static` 資料夾內包含 `index.html` 和 `script.js`
+* SQLite 資料庫檔案會自動生成 `todos.db`
+* 若資料庫毀損，刪除 `todos.db` 後重新啟動即可自動重建
+
+---
+
+
